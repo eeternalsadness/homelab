@@ -13,5 +13,6 @@ spec:
     repoURL: "https://github.com/eeternalsadness/homelab.git"
     targetRevision: main
   syncPolicy:
+    automated: {}
     syncOptions:
       - CreateNamespace=true

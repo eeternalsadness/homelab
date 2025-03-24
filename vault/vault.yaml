@@ -11,7 +11,7 @@ spec:
   source:
     chart: vault
     repoURL: "https://helm.releases.hashicorp.com"
-    targetRevision: v0.29.1
+    targetRevision: 0.29.1
   syncPolicy:
     automated:
       prune: true

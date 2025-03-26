@@ -16,3 +16,9 @@ spec:
       parameters:
         - name: "defaultDashboardsTimezone"
           value: "Asia/Bangkok"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -6,9 +6,9 @@ metadata:
   finalizers:
     - resource-finalizer.argocd.argoproj.io
 spec:
+  project: default
   destination:
     server: "https://kubernetes.default.svc"
-  project: default
   source:
     path: envs/dev
     repoURL: "https://github.com/eeternalsadness/homelab.git"

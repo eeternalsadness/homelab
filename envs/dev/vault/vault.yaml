@@ -4,10 +4,10 @@ metadata:
   name: vault
   namespace: argocd
 spec:
+  project: default
   destination:
     namespace: vault
     server: "https://kubernetes.default.svc"
-  project: default
   source:
     chart: vault
     repoURL: "https://helm.releases.hashicorp.com"

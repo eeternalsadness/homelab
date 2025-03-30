@@ -13,7 +13,7 @@ spec:
       repoURL: "https://prometheus-community.github.io/helm-charts"
       targetRevision: 70.3.0
       helm:
-        valuesFiles:
+        valueFiles:
           - $values/values-grafana.yaml
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       path: envs/dev/monitoring

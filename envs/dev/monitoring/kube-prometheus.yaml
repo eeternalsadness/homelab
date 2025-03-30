@@ -13,9 +13,8 @@ spec:
     repoURL: "https://prometheus-community.github.io/helm-charts"
     targetRevision: 70.3.0
     helm:
-      fileParameters:
-        - name: grafana
-          path: envs/dev/monitoring/values-grafana.yaml
+      valuesFiles:
+        - envs/dev/monitoring/values-grafana.yaml
   syncPolicy:
     automated:
       prune: true

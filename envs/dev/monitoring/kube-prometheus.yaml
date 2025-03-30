@@ -12,13 +12,13 @@ spec:
     - chart: kube-prometheus-stack
       repoURL: "https://prometheus-community.github.io/helm-charts"
       targetRevision: 70.3.0
-      helm:
-        valueFiles:
-          - $values/envs/dev/monitoring/values-grafana.yaml
-          - $values/envs/dev/monitoring/values-prometheus.yaml
-    - repoURL: "https://github.com/eeternalsadness/homelab.git"
-      targetRevision: main
-      ref: values
+      #      helm:
+      #        valueFiles:
+      #          - $values/envs/dev/monitoring/values-grafana.yaml
+      #          - $values/envs/dev/monitoring/values-prometheus.yaml
+      #    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      #      targetRevision: main
+      #      ref: values
   syncPolicy:
     automated:
       prune: true

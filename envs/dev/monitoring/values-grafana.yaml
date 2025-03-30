@@ -12,12 +12,12 @@ grafana:
   sidecar:
     resources: {}
     dashboards:
-      enabled: true
+      enabled: false
       label: grafana_dashboard
       labelValue: ""
       searchNamespace: ALL # search in all namespaces
     alerts:
-      enabled: true
+      enabled: false
       label: grafana_alert
       labelValue: ""
       searchNamespace: ALL # search in all namespaces

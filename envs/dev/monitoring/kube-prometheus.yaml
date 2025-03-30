@@ -8,13 +8,17 @@ spec:
   destination:
     namespace: monitoring
     server: "https://kubernetes.default.svc"
-  source:
-    chart: kube-prometheus-stack
-    repoURL: "https://prometheus-community.github.io/helm-charts"
-    targetRevision: 70.3.0
-    helm:
-      valuesFiles:
-        - envs/dev/monitoring/values-grafana.yaml
+  sources:
+    - chart: kube-prometheus-stack
+      repoURL: "https://prometheus-community.github.io/helm-charts"
+      targetRevision: 70.3.0
+      helm:
+        valuesFiles:
+          - $values/values-grafana.yaml
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      path: envs/dev/monitoring
+      targetRevision: main
+      ref: values
   syncPolicy:
     automated:
       prune: true

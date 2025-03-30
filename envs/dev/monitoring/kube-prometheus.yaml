@@ -21,3 +21,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      # try to get around annotation size limit
+      - ServerSideApply=true

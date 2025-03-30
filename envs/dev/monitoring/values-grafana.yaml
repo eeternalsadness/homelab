@@ -3,8 +3,7 @@ grafana:
   # FIXME: store this in vault somehow
   adminPassword: admin
 
-  ingress:
-    enabled: true
-    ingressClassName: nginx # WARN: minikube only
-    #ingressClassName: traefik
-    path: /grafana
+  #  ingress:
+  #    enabled: true
+  #    ingressClassName: traefik
+  #    path: /grafana

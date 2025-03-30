@@ -14,8 +14,8 @@ spec:
       targetRevision: 70.3.0
       helm:
         valueFiles:
-          - values.yaml
           - $values/envs/dev/monitoring/values-grafana.yaml
+          - $values/envs/dev/monitoring/values-prometheus.yaml
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
       ref: values

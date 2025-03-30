@@ -14,28 +14,28 @@ grafana:
   #    ingressClassName: traefik
   #    path: /grafana
 
-  resources: {}
+  #resources: {}
 
   # NOTE: for auto discovery of resources (dashboards, alerts, data sources, etc.)
-  sidecar:
-    resources: {}
-    dashboards:
-      enabled: false
-      label: grafana_dashboard
-      labelValue: ""
-      searchNamespace: ALL # search in all namespaces
-    alerts:
-      enabled: false
-      label: grafana_alert
-      labelValue: ""
-      searchNamespace: ALL # search in all namespaces
-    datasources:
-      enabled: false
-      label: grafana_datasource
-      labelValue: ""
-      searchNamespace: ALL # search in all namespaces
-    plugins:
-      enabled: false
-      label: grafana_plugin
-      labelValue: ""
-      searchNamespace: ALL # search in all namespaces
+  #sidecar:
+  #  resources: {}
+  #  dashboards:
+  #    enabled: false
+  #    label: grafana_dashboard
+  #    labelValue: ""
+  #    searchNamespace: ALL # search in all namespaces
+  #  alerts:
+  #    enabled: false
+  #    label: grafana_alert
+  #    labelValue: ""
+  #    searchNamespace: ALL # search in all namespaces
+  #  datasources:
+  #    enabled: false
+  #    label: grafana_datasource
+  #    labelValue: ""
+  #    searchNamespace: ALL # search in all namespaces
+  #  plugins:
+  #    enabled: false
+  #    label: grafana_plugin
+  #    labelValue: ""
+  #    searchNamespace: ALL # search in all namespaces

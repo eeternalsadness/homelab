@@ -14,7 +14,7 @@ grafana:
   #    ingressClassName: traefik
   #    path: /grafana
 
-  #resources: {}
+  resources: {}
 
   # NOTE: for auto discovery of resources (dashboards, alerts, data sources, etc.)
   #sidecar:

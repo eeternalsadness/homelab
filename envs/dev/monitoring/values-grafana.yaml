@@ -1,0 +1,9 @@
+grafana:
+  defaultDashboardsTimezone: Asia/Bangkok
+  # FIXME: store this in vault somehow
+  adminPassword: admin
+
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    path: /grafana

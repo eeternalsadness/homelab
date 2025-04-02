@@ -9,8 +9,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          #storageClassName: default
-          storageClassName: standard # minikube
+          storageClassName: default
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:

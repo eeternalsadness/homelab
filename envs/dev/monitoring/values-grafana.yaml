@@ -21,21 +21,21 @@ grafana:
     resources: {}
     dashboards:
       enabled: true
-      label: grafana_dashboard
-      labelValue: ""
+      label: grafana_dashboard # label to look for
+      labelValue: "1" # label value to look for
       searchNamespace: ALL # search in all namespaces
     alerts:
       enabled: true
       label: grafana_alert
-      labelValue: ""
+      labelValue: "1"
       searchNamespace: ALL # search in all namespaces
     datasources:
       enabled: true
       label: grafana_datasource
-      labelValue: ""
+      labelValue: "1"
       searchNamespace: ALL # search in all namespaces
     plugins:
       enabled: true
       label: grafana_plugin
-      labelValue: ""
+      labelValue: "1"
       searchNamespace: ALL # search in all namespaces

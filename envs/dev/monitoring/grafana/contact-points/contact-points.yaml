@@ -1,0 +1,19 @@
+apiVersion: 1
+
+contactPoints:
+  - orgId: 1
+    # <string, required> name of the contact point
+    name: telegram
+    receivers:
+      # <string, required> unique identifier for the receiver. Should not exceed 40 symbols. Only letters, numbers, - (hyphen), and _ (underscore) allowed.
+      - uid: telegram
+        # <string, required> type of the receiver
+        type: telegram
+        # <bool, optional> Disable the additional [Incident Resolved] follow-up alert, default = false
+        disableResolveMessage: false
+        # <object, required> settings for the specific receiver type
+        settings:
+          bottoken: xxx
+          chatid: xxx
+          message: |
+            Test

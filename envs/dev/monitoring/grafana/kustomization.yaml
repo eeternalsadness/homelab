@@ -5,9 +5,9 @@ namespace: monitoring
 generatorOptions:
   # common label for grafana sidecar to pick up resource
   labels:
-    grafana_dashboard: "1"
+    grafana_alert: "1"
 
 configMapGenerator:
   - name: grafana-contact-points
     files:
-      - contact-points/contact-points.json
+      - contact-points/contact-points.yaml

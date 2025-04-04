@@ -16,6 +16,9 @@ grafana:
 
   resources: {}
 
+  defaultRules:
+    create: false
+
   # NOTE: for auto discovery of resources (dashboards, alerts, data sources, etc.)
   sidecar:
     resources: {}

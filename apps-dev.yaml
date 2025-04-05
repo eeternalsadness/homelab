@@ -15,6 +15,7 @@ spec:
     targetRevision: main
     directory:
       recurse: true
+      exclude: envs/dev/monitoring/grafana/*
   syncPolicy:
     automated:
       prune: true

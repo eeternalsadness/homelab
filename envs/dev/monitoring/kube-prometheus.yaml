@@ -19,6 +19,9 @@ spec:
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
       ref: values
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: main
+      path: envs/dev/monitoring/grafana
   syncPolicy:
     automated:
       prune: true

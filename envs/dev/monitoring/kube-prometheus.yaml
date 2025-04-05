@@ -16,6 +16,7 @@ spec:
         valueFiles:
           - $values/envs/dev/monitoring/values-grafana.yaml
           - $values/envs/dev/monitoring/values-prometheus.yaml
+          - $values/envs/dev/monitoring/values.yaml
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
       ref: values

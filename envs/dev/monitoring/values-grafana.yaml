@@ -14,6 +14,16 @@ grafana:
   #    ingressClassName: traefik
   #    path: /grafana
 
+  podAnnotations:
+    vault.hashicorp.com/agent-inject: true
+    vault.hashicorp.com/agent-inject-secret-grafana: /kvv1/grafana
+    vault.hashicorp.com/agent-inject-template-grafana: |
+      {{- with secret "/kvv1/grafana" -}}
+        export GF_SECURITY_ADMIN_USER="{{ .Data.username }}"
+        export GF_SECURITY_ADMIN_PASSWORD="{{ .Data.password }}"
+      {{- end }}
+    vault.hashicorp.com/role: test
+
   resources: {}
 
   # NOTE: for auto discovery of resources (dashboards, alerts, data sources, etc.)

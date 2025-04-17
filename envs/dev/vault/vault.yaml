@@ -12,6 +12,10 @@ spec:
     chart: vault
     repoURL: "https://helm.releases.hashicorp.com"
     targetRevision: 0.29.1
+    helm:
+      parameters:
+        - name: "logLevel"
+          value: "debug"
   syncPolicy:
     automated:
       prune: true

@@ -17,9 +17,11 @@ spec:
           - $values/envs/dev/monitoring/values-grafana.yaml
           - $values/envs/dev/monitoring/values-prometheus.yaml
           - $values/envs/dev/monitoring/values.yaml
+    # values files reference
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
       ref: values
+    # kustomization for config maps
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
       path: envs/dev/monitoring/grafana

@@ -15,7 +15,7 @@ spec:
     targetRevision: main
     directory:
       recurse: true
-      exclude: "{envs/dev/monitoring/grafana/**, *.json}"
+      exclude: "{envs/dev/monitoring/grafana/kustomization.yaml, *.json}"
   syncPolicy:
     automated:
       prune: true

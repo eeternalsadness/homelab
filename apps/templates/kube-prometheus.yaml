@@ -1,3 +1,4 @@
+{{- range := .Values.envs }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -14,17 +15,17 @@ spec:
       targetRevision: 70.3.0
       helm:
         valueFiles:
-          - $values/envs/dev/monitoring/values-grafana.yaml
-          - $values/envs/dev/monitoring/values-prometheus.yaml
-          - $values/envs/dev/monitoring/values.yaml
+          - $values/envs/{{ . }}/grafana/values/values-grafana.yaml
+          - $values/envs/{{ . }}/grafana/values/values-prometheus.yaml
+          - $values/envs/{{ . }}/grafana/values/values.yaml
     # values files reference
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
       ref: values
     # kustomization for config maps
-    #- repoURL: "https://github.com/eeternalsadness/homelab.git"
-    #  targetRevision: main
-    #  path: envs/dev/monitoring/grafana
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: main
+      path: envs/{{ . }}/grafana/config
   syncPolicy:
     automated:
       prune: true
@@ -33,3 +34,4 @@ spec:
       - CreateNamespace=true
       # try to get around annotation size limit
       - ServerSideApply=true
+{{- end }}

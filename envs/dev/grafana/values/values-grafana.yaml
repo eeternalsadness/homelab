@@ -1,6 +1,6 @@
 grafana:
   defaultDashboardsTimezone: Asia/Bangkok
-  adminPassword: admin
+  #adminPassword: admin
 
   # TODO: use this to inject existing secret
   #admin:

@@ -10,12 +10,9 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
   source:
-    path: envs/dev
+    path: apps
     repoURL: "https://github.com/eeternalsadness/homelab.git"
     targetRevision: main
-    directory:
-      recurse: true
-      exclude: "{envs/dev/monitoring/grafana/*, *.json}"
   syncPolicy:
     automated:
       prune: true

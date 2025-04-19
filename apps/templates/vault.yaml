@@ -16,6 +16,12 @@ spec:
       parameters:
         - name: "logLevel"
           value: "debug"
+  # ignore mutating webhook diffs
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      jqPathExpressions:
+        - .webhooks[]?.clientConfig.caBundle
   syncPolicy:
     automated:
       prune: true

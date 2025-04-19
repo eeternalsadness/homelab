@@ -15,9 +15,9 @@ spec:
       targetRevision: 70.3.0
       helm:
         valueFiles:
-          - $values/envs/{{ . }}/grafana/values/values-grafana.yaml
-          - $values/envs/{{ . }}/grafana/values/values-prometheus.yaml
-          - $values/envs/{{ . }}/grafana/values/values.yaml
+          - $values/envs/{{ . }}/kube-prometheus/values/values-grafana.yaml
+          - $values/envs/{{ . }}/kube-prometheus/values/values-prometheus.yaml
+          - $values/envs/{{ . }}/kube-prometheus/values/values.yaml
     # values files reference
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
@@ -25,7 +25,7 @@ spec:
     # kustomization for config maps
     #- repoURL: "https://github.com/eeternalsadness/homelab.git"
     #  targetRevision: main
-    #  path: envs/{{ . }}/grafana/config
+    #  path: envs/{{ . }}/kube-prometheus/config
   syncPolicy:
     automated:
       prune: true

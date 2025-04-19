@@ -23,9 +23,9 @@ spec:
       targetRevision: main
       ref: values
     # kustomization for config maps
-    - repoURL: "https://github.com/eeternalsadness/homelab.git"
-      targetRevision: main
-      path: envs/{{ . }}/grafana/config
+    #- repoURL: "https://github.com/eeternalsadness/homelab.git"
+    #  targetRevision: main
+    #  path: envs/{{ . }}/grafana/config
   syncPolicy:
     automated:
       prune: true

@@ -1,51 +1,33 @@
 grafana:
   defaultDashboardsTimezone: Asia/Bangkok
-  #adminPassword: admin
-
-  # TODO: use this to inject existing secret
-  #admin:
-  #  # Name of the secret. Can be templated.
-  #  existingSecret: ""
-  #  userKey: admin-user
-  #  passwordKey: admin-password
 
   #  ingress:
   #    enabled: true
   #    ingressClassName: traefik
   #    path: /grafana
 
-  podAnnotations:
-    vault.hashicorp.com/agent-inject: "true"
-    vault.hashicorp.com/agent-inject-secret-grafana: "/kvv1/grafana"
-    vault.hashicorp.com/agent-inject-template-grafana: |
-      {{- with secret "/kvv1/grafana" -}}
-        export GF_SECURITY_ADMIN_USER="{{ .Data.username }}"
-        export GF_SECURITY_ADMIN_PASSWORD="{{ .Data.password }}"
-      {{- end }}
-    vault.hashicorp.com/role: "test"
-
   resources: {}
 
   # NOTE: for auto discovery of resources (dashboards, alerts, data sources, etc.)
-  sidecar:
-    resources: {}
-    dashboards:
-      enabled: true
-      label: grafana_dashboard # label to look for
-      labelValue: "1" # label value to look for
-      searchNamespace: ALL # search in all namespaces
-    alerts:
-      enabled: true
-      label: grafana_alert
-      labelValue: "1"
-      searchNamespace: ALL # search in all namespaces
-    datasources:
-      enabled: true
-      label: grafana_datasource
-      labelValue: "1"
-      searchNamespace: ALL # search in all namespaces
-    plugins:
-      enabled: true
-      label: grafana_plugin
-      labelValue: "1"
-      searchNamespace: ALL # search in all namespaces
+  #sidecar:
+  #  resources: {}
+  #  dashboards:
+  #    enabled: true
+  #    label: grafana_dashboard # label to look for
+  #    labelValue: "1" # label value to look for
+  #    searchNamespace: ALL # search in all namespaces
+  #  alerts:
+  #    enabled: true
+  #    label: grafana_alert
+  #    labelValue: "1"
+  #    searchNamespace: ALL # search in all namespaces
+  #  datasources:
+  #    enabled: true
+  #    label: grafana_datasource
+  #    labelValue: "1"
+  #    searchNamespace: ALL # search in all namespaces
+  #  plugins:
+  #    enabled: true
+  #    label: grafana_plugin
+  #    labelValue: "1"
+  #    searchNamespace: ALL # search in all namespaces

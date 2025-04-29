@@ -12,7 +12,7 @@ spec:
   source:
     path: apps
     repoURL: "https://github.com/eeternalsadness/homelab.git"
-    targetRevision: minikube
+    targetRevision: vault-only
   syncPolicy:
     automated:
       prune: true

@@ -2,6 +2,9 @@ server:
   ingress:
     enabled: true
     ingressClassName: nginx # minikube
+    # minikube nginx path rewrite
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
     hosts:
       - host: homelab.local
         paths:

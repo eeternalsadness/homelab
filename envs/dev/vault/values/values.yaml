@@ -1,0 +1,9 @@
+ingress:
+  enabled: true
+  ingressClassName: nginx # minikube
+  hosts:
+    host: homelab.local
+  extraPaths:
+    - /vault
+
+logLevel: debug

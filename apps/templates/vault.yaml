@@ -1,3 +1,4 @@
+{{- range .Values.envs }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -8,14 +9,17 @@ spec:
   destination:
     namespace: vault
     server: "https://kubernetes.default.svc"
-  source:
-    chart: vault
-    repoURL: "https://helm.releases.hashicorp.com"
-    targetRevision: 0.29.1
-    helm:
-      parameters:
-        - name: "logLevel"
-          value: "debug"
+  sources:
+    - chart: vault
+      repoURL: "https://helm.releases.hashicorp.com"
+      targetRevision: 0.29.1
+      helm:
+        valueFiles:
+          - $values/envs/{{ . }}/vault/values/values.yaml
+    # values files reference
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: main
+      ref: values
   # ignore mutating webhook diffs
   ignoreDifferences:
     - group: admissionregistration.k8s.io
@@ -28,3 +32,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+{{- end }}

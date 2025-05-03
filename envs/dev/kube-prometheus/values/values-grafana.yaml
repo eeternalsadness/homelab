@@ -1,10 +1,12 @@
 grafana:
   defaultDashboardsTimezone: Asia/Bangkok
 
-  #  ingress:
-  #    enabled: true
-  #    ingressClassName: traefik
-  #    path: /grafana
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - grafana.homelab.local
+    path: /
 
   resources: {}
 

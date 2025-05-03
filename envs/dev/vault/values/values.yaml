@@ -8,3 +8,6 @@ server:
           - /vault
 
   logLevel: debug
+
+ui:
+  enabled: true

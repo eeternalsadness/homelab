@@ -5,7 +5,7 @@ grafana:
     enabled: true
     ingressClassName: nginx
     hosts:
-      - grafana.homelab.local
+      - grafana.minikube.local
     path: /
 
   resources: {}

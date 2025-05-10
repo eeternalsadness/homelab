@@ -6,7 +6,7 @@ server:
     #annotations:
     #  nginx.ingress.kubernetes.io/rewrite-target: /
     hosts:
-      - host: vault.homelab.local
+      - host: vault.minikube.local
         paths:
           - /
 

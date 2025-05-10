@@ -3,8 +3,7 @@ grafana:
 
   ingress:
     enabled: true
-    #ingressClassName: nginx
-    ingressClassName: traefik
+    ingressClassName: nginx
     hosts:
       - grafana.homelab.local
     path: /

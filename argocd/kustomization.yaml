@@ -5,7 +5,7 @@ namespace: argocd
 resources:
   - namespace.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-  - ingress-traefik.yaml
+  - ingress-nginx.yaml
 
 # NOTE: run argocd server in insecure mode for local development or traefik ingress
 configMapGenerator:

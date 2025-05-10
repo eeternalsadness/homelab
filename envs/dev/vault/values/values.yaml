@@ -1,8 +1,7 @@
 server:
   ingress:
     enabled: true
-    #ingressClassName: nginx # minikube
-    ingressClassName: traefik
+    ingressClassName: nginx # minikube
     # minikube nginx path rewrite
     #annotations:
     #  nginx.ingress.kubernetes.io/rewrite-target: /

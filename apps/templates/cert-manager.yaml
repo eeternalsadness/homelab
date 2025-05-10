@@ -18,7 +18,7 @@ spec:
           - $values/envs/{{ . }}/cert-manager/values/values.yaml
     # values files reference
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
-      targetRevision: main
+      targetRevision: minikube
       ref: values
   syncPolicy:
     automated:

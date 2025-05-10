@@ -4,4 +4,4 @@ kind: Kustomization
 namespace: cert-manager
 resources:
   - cluster-issuer.yaml
-  - minikube-cert.yaml
+  - argocd-cert.yaml

@@ -7,13 +7,13 @@ server:
       #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     hosts:
-      - host: vault.minikube.local
+      - host: vault.minikube.io
         paths:
           - /
     tls:
       - secretName: cluster-issuer
         hosts:
-          - vault.minikube.local
+          - vault.minikube.io
 
   logLevel: debug
 

@@ -9,12 +9,12 @@ grafana:
       #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     hosts:
-      - grafana.minikube.local
+      - grafana.minikube.io
     path: /
     tls:
       - secretName: cluster-issuer
         hosts:
-          - grafana.minikube.local
+          - grafana.minikube.io
 
   resources: {}
 

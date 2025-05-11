@@ -4,4 +4,4 @@ metadata:
   name: cluster-issuer
 spec:
   ca:
-    secretName: minikube-ca
+    secretName: homelab-ca

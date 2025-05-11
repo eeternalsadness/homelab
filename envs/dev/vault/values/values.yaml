@@ -1,20 +1,4 @@
 server:
-  ingress:
-    enabled: true
-    ingressClassName: nginx # minikube
-    annotations:
-      cert-manager.io/cluster-issuer: cluster-issuer # name of cluster issuer
-      #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    hosts:
-      - host: vault.minikube.io
-        paths:
-          - /
-    tls:
-      - secretName: cluster-issuer
-        hosts:
-          - vault.minikube.io
-
   logLevel: debug
 
 ui:

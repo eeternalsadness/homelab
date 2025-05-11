@@ -1,0 +1,19 @@
+# https://argo-cd.readthedocs.io/en/latest/operator-manual/ingress/#traefik-v30
+# the config options are very similar to HAProxy
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: vault
+  namespace: vault
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`vault.homelab.io`)
+      priority: 10
+      services:
+        - name: vault
+          port: 8200
+  tls:
+    secretName: vault-tls

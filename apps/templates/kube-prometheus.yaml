@@ -20,12 +20,12 @@ spec:
           - $values/envs/{{ . }}/kube-prometheus/values/values.yaml
     # values files reference
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
-      targetRevision: minikube
+      targetRevision: main
       ref: values
-    # kustomization for config maps
-    #- repoURL: "https://github.com/eeternalsadness/homelab.git"
-    #  targetRevision: main
-    #  path: envs/{{ . }}/kube-prometheus/config
+    # kustomization
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: main
+      path: envs/{{ . }}/kube-prometheus/resources
   syncPolicy:
     automated:
       prune: true

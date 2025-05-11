@@ -18,11 +18,11 @@ spec:
           - $values/envs/{{ . }}/cert-manager/values/values.yaml
     # values files reference
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
-      targetRevision: minikube
+      targetRevision: main
       ref: values
     # resources
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
-      targetRevision: minikube
+      targetRevision: main
       path: envs/{{ . }}/cert-manager/resources
   syncPolicy:
     automated:

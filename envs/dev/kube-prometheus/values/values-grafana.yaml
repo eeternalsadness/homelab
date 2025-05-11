@@ -1,21 +1,6 @@
 grafana:
   defaultDashboardsTimezone: Asia/Bangkok
 
-  ingress:
-    enabled: true
-    ingressClassName: nginx
-    annotations:
-      cert-manager.io/cluster-issuer: cluster-issuer # name of cluster issuer
-      #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    hosts:
-      - grafana.minikube.io
-    path: /
-    tls:
-      - secretName: cluster-issuer
-        hosts:
-          - grafana.minikube.io
-
   resources: {}
 
   # NOTE: for auto discovery of resources (dashboards, alerts, data sources, etc.)

@@ -2,11 +2,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd
+  name: argocd-https
   namespace: argocd
-  #annotations:
-  #  nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-  #  nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  annotations:
+    cert-manager.io/cluster-issuer: cluster-issuer # name of cluster issuer
+    #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # for redirect loop or 307 response code
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx # minikube
   rules:
@@ -19,4 +22,8 @@ spec:
               service:
                 name: argocd-server
                 port:
-                  name: http
+                  name: https
+  tls:
+    - secretName: argocd-tls
+      hosts:
+        - argocd.minikube.local

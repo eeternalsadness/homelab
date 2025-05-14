@@ -11,7 +11,7 @@ server:
         paths:
           - /
     tls:
-      - secretName: cluster-issuer
+      - secretName: vault-tls
         hosts:
           - vault.minikube.io
 

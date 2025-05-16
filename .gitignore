@@ -1,3 +1,4 @@
 kubeconfig
 *.crt
 *.key
+.DS_Store

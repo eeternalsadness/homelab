@@ -1,6 +1,11 @@
 grafana:
   defaultDashboardsTimezone: Asia/Bangkok
 
+  grafana.ini:
+    server:
+      # NOTE: used for redirects (e.g. OIDC)
+      root_url: https://grafana.minikube.io
+
   resources: {}
 
   # NOTE: for auto discovery of resources (dashboards, alerts, data sources, etc.)

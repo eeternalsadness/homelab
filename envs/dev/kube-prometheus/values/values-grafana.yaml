@@ -6,7 +6,7 @@ grafana:
     ingressClassName: nginx
     annotations:
       cert-manager.io/cluster-issuer: cluster-issuer # name of cluster issuer
-      #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     hosts:
       - grafana.minikube.io

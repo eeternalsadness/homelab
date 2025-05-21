@@ -4,7 +4,7 @@ grafana:
   grafana.ini:
     server:
       # NOTE: used for redirects (e.g. OIDC)
-      root_url: https://grafana.minikube.io
+      root_url: https://grafana.homelab.io
 
   resources: {}
 

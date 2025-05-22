@@ -23,6 +23,13 @@ grafana:
 
   resources: {}
 
+  persistence:
+    enabled: true
+    type: pvc
+    accessModes:
+      - ReadWriteOnce
+    size: 4Gi
+
   # NOTE: for auto discovery of resources (dashboards, alerts, data sources, etc.)
   #sidecar:
   #  resources: {}

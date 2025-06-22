@@ -1,0 +1,31 @@
+{{- range .Values.envs }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alloy
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    namespace: monitoring
+    server: "https://kubernetes.default.svc"
+  sources:
+    - chart: alloy
+      repoURL: "https://grafana.github.io/helm-charts"
+      targetRevision: 1.1.1
+      helm:
+        valueFiles:
+          - $values/envs/{{ . }}/alloy/values/values.yaml
+    # values files reference
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: minikube
+      ref: values
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+{{- end }}
+
+

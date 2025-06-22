@@ -1,0 +1,30 @@
+{{- range .Values.envs }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    namespace: monitoring
+    server: "https://kubernetes.default.svc"
+  sources:
+    - chart: grafana/loki
+      repoURL: "https://grafana.github.io/helm-charts"
+      targetRevision: 6.30.1
+      helm:
+        valueFiles:
+          - $values/envs/{{ . }}/loki/values/values.yaml
+    # values files reference
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: minikube
+      ref: values
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+{{- end }}
+

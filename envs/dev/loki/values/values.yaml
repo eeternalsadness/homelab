@@ -1,5 +1,6 @@
 # NOTE: from https://grafana.com/docs/loki/latest/setup/install/helm/install-monolithic/
 loki:
+  auth_enabled: false
   commonConfig:
     replication_factor: 1
   schemaConfig:

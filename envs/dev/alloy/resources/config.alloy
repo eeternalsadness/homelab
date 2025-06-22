@@ -12,20 +12,20 @@ loki.write "default" {
 // SYSTEM LOGS
 // ============================
 
-local.file_match "node_logs" {
-  path_targets = [{
-    __path__  = "/var/log/syslog",
-    job       = "node/syslog",
-    node_name = sys.env("HOSTNAME"),
-    cluster   = "minikube",
-  }]
-}
+//local.file_match "node_logs" {
+//  path_targets = [{
+//    __path__  = "/var/log/syslog",
+//    job       = "node/syslog",
+//    node_name = sys.env("HOSTNAME"),
+//    cluster   = "minikube",
+//  }]
+//}
 
 // loki.source.file reads log entries from files and forwards them to other loki.* components.
-loki.source.file "node_logs" {
-  targets    = local.file_match.node_logs.targets
-  forward_to = [loki.write.default.receiver]
-}
+//loki.source.file "node_logs" {
+//  targets    = local.file_match.node_logs.targets
+//  forward_to = [loki.write.default.receiver]
+//}
 
 // ============================
 // PODS LOGS

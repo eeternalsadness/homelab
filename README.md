@@ -24,6 +24,7 @@ ASRock Deskmini A300: AMD Ryzen 3 2200G (4 cores, 4 threads), 8GB RAM
 - Cert Manager
 - Prometheus
 - Grafana
+- Loki
 - HashiCorp Vault
 - Qdrant
 

@@ -1,6 +1,6 @@
 apiVersion: v2
-name: app-of-apps
-description: Applications
+name: infra-apps
+description: "App of apps for infra components"
 
 type: application
 version: 0.1.0

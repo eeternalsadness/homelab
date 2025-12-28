@@ -1,4 +1,3 @@
-{{- range .Values.envs }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -12,22 +11,22 @@ spec:
   sources:
     - chart: cert-manager
       repoURL: "https://charts.jetstack.io"
-      targetRevision: 1.17.2
+      targetRevision: 1.19.2
       helm:
         valueFiles:
-          - $values/envs/{{ . }}/cert-manager/values/values.yaml
+          - $values/2-infra/dev/cert-manager/values/values.yaml
     # values files reference
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
       ref: values
     # resources
-    - repoURL: "https://github.com/eeternalsadness/homelab.git"
-      targetRevision: main
-      path: envs/{{ . }}/cert-manager/resources
+    #- repoURL: "https://github.com/eeternalsadness/homelab.git"
+    #  targetRevision: main
+    #  path: 2-infra/dev/cert-manager/resources
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-{{- end }}
+      - ServerSideApply=true

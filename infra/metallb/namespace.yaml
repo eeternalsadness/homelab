@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: metallb
+  name: metallb-system
   labels:
     # required if PSA is enabled
     pod-security.kubernetes.io/enforce: privileged

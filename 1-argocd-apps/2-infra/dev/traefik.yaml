@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    namespace: traefik
+    server: "https://kubernetes.default.svc"
+  sources:
+    # install helm chart
+    - chart: traefik
+      repoURL: "https://traefik.github.io/charts"
+      targetRevision: 38.0.1
+      helm:
+        valueFiles:
+          - $values/2-infra/dev/traefik/values/values.yaml
+    # values files reference
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

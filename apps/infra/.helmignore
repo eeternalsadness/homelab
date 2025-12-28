@@ -1,4 +1,0 @@
-templates/cert-manager.yaml
-templates/kube-prometheus.yaml
-templates/qdrant.yaml
-templates/vault.yaml

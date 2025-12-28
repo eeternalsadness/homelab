@@ -27,7 +27,8 @@ spec:
       - CreateNamespace=true
       - ServerSideApply=true
     managedNamespaceMetadata:
-      # required if PSA is enabled
-      pod-security.kubernetes.io/enforce: privileged
-      pod-security.kubernetes.io/audit: privileged
-      pod-security.kubernetes.io/warn: privileged
+      labels:
+        # required if PSA is enabled
+        pod-security.kubernetes.io/enforce: privileged
+        pod-security.kubernetes.io/audit: privileged
+        pod-security.kubernetes.io/warn: privileged

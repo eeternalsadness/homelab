@@ -11,10 +11,6 @@ spec:
     namespace: metallb-system
     server: "https://kubernetes.default.svc"
   sources:
-    # bootstrap namespace first to include correct labels
-    - repoURL: "https://github.com/eeternalsadness/homelab.git"
-      targetRevision: main
-      path: infra/metallb/bootstrap
     # install helm chart
     - chart: metallb
       repoURL: "https://metallb.github.io/metallb"
@@ -22,10 +18,16 @@ spec:
     # IP address pool & L2 advertisement
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
-      path: infra/metallb/resources
+      path: 2-infra/dev/metallb/resources
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
+      - CreateNamespace=true
       - ServerSideApply=true
+    managedNamespaceMetadata:
+      # required if PSA is enabled
+      pod-security.kubernetes.io/enforce: privileged
+      pod-security.kubernetes.io/audit: privileged
+      pod-security.kubernetes.io/warn: privileged

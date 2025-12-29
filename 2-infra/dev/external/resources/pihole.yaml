@@ -26,10 +26,11 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: external-pihole-addprefix
+  name: external-pihole-replacepathregex
 spec:
-  addPrefix:
-    prefix: "/admin"
+  replacePathRegex:
+    regex: "^/(.*)"
+    replacement: "/admin/${1}"
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
@@ -48,8 +49,8 @@ spec:
   routes:
     - kind: Rule
       match: Host(`pihole.eeternalsadness.dev`)
-      #middlewares:
-      #  - name: external-pihole-addprefix
+      middlewares:
+        - name: external-pihole-replacepathregex
       services:
         - name: external-pihole
           kind: Service

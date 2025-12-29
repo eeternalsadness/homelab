@@ -20,7 +20,7 @@ spec:
     name: cluster-issuer
     kind: ClusterIssuer
   dnsNames:
-    - pihole.eeternalsadness.dev
+    - pihole.homelab.eeternalsadness.dev
 ---
 # Replace the path with /admin
 apiVersion: traefik.io/v1alpha1
@@ -37,7 +37,7 @@ kind: IngressRoute
 metadata:
   name: pihole
   annotations:
-    gethomepage.dev/href: "https://pihole.eeternalsadness.dev"
+    gethomepage.dev/href: "https://pihole.homelab.eeternalsadness.dev"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/description: Pi-hole
     gethomepage.dev/group: Management
@@ -48,7 +48,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`pihole.eeternalsadness.dev`)
+      match: Host(`pihole.homelab.eeternalsadness.dev`)
       middlewares:
         - name: external-pihole-replacepathregex
       services:

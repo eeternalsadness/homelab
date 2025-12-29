@@ -27,7 +27,6 @@ kind: ServersTransport
 metadata:
   name: proxmox
 spec:
-  serverName: proxmox.homelab.eeternalsadness.dev
   insecureSkipVerify: true
 ---
 apiVersion: traefik.io/v1alpha1

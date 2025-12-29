@@ -1,7 +1,7 @@
 ingressRoute:
   dashboard:
     enabled: true
-    matchRule: Host(`traefik.homelab.io`)
+    matchRule: Host(`traefik.homelab.eeternalsadness.dev`)
     entryPoints:
       - web
 providers:

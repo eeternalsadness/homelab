@@ -10,7 +10,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`grafana.homelab.io`)
+      match: Host(`grafana.homelab.eeternalsadness.dev`)
       priority: 10
       services:
         - name: kube-prometheus-grafana

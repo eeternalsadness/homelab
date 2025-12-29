@@ -6,7 +6,7 @@ metadata:
   name: argocd-server
   namespace: argocd
   annotations:
-    gethomepage.dev/href: "http://argocd.homelab.io"
+    gethomepage.dev/href: "http://argocd.homelab.eeternalsadness.dev"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/description: ArgoCD
     gethomepage.dev/group: Platform
@@ -20,13 +20,13 @@ spec:
     - web
   routes:
     - kind: Rule
-      match: Host(`argocd.homelab.io`)
+      match: Host(`argocd.homelab.eeternalsadness.dev`)
       priority: 10
       services:
         - name: argocd-server
           port: 80
     - kind: Rule
-      match: Host(`argocd.homelab.io`) && Header(`Content-Type`, `application/grpc`)
+      match: Host(`argocd.homelab.eeternalsadness.dev`) && Header(`Content-Type`, `application/grpc`)
       priority: 11 # higher number = higher priority
       services:
         - name: argocd-server

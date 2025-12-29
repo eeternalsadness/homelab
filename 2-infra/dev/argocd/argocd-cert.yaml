@@ -9,4 +9,4 @@ spec:
     name: cluster-issuer
     kind: ClusterIssuer
   dnsNames:
-    - argocd.homelab.io
+    - argocd.homelab.eeternalsadness.dev

@@ -9,4 +9,4 @@ spec:
     name: cluster-issuer
     kind: ClusterIssuer
   dnsNames:
-    - vault.homelab.io
+    - vault.homelab.eeternalsadness.dev

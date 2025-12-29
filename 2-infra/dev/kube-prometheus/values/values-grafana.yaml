@@ -4,7 +4,7 @@ grafana:
   grafana.ini:
     server:
       # NOTE: used for redirects (e.g. OIDC)
-      root_url: https://grafana.homelab.io
+      root_url: https://grafana.homelab.eeternalsadness.dev
 
   resources: {}
 

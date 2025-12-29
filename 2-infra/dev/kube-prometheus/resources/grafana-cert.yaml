@@ -9,4 +9,4 @@ spec:
     name: cluster-issuer
     kind: ClusterIssuer
   dnsNames:
-    - grafana.homelab.io
+    - grafana.homelab.eeternalsadness.dev

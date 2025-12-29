@@ -10,7 +10,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`vault.homelab.io`)
+      match: Host(`vault.homelab.eeternalsadness.dev`)
       priority: 10
       services:
         - name: vault

@@ -20,9 +20,9 @@ spec:
       targetRevision: main
       ref: values
     # resources
-    #- repoURL: "https://github.com/eeternalsadness/homelab.git"
-    #  targetRevision: main
-    #  path: 2-infra/dev/cert-manager/resources
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: main
+      path: 2-infra/dev/cert-manager/resources
   syncPolicy:
     automated:
       prune: true

@@ -3,5 +3,19 @@ kind: ClusterIssuer
 metadata:
   name: cluster-issuer
 spec:
-  ca:
-    secretName: homelab-ca
+  acme:
+    # email address used for ACME registration
+    email: 69bnguyen@gmail.com
+    # ACME server URL
+    server: https://acme-staging-v02.api.letsencrypt.org/directory # staging
+    # server: https://acme-v02.api.letsencrypt.org/directory # production
+    # the auto-generated key for cert-manager to identify with let's encrypt
+    privateKeySecretRef:
+      name: issuer-key
+    solvers:
+      - dns01:
+          cloudflare:
+            email: 69bnguyen@gmail.com
+            apiTokenSecretRef:
+              name: cloudflare-api-token-secret
+              key: api-token

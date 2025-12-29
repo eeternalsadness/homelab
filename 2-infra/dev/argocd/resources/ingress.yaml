@@ -10,12 +10,14 @@ metadata:
     gethomepage.dev/enabled: "true"
     gethomepage.dev/description: ArgoCD
     gethomepage.dev/group: Platform
+    gethomepage.dev/app: argocd-server # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
     #gethomepage.dev/icon: emby.png
     gethomepage.dev/name: ArgoCD
     #gethomepage.dev/pod-selector: ""
 spec:
   entryPoints:
     - web
+    - websecure
   routes:
     - kind: Rule
       match: Host(`argocd.homelab.io`)

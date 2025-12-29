@@ -8,9 +8,9 @@ metadata:
 data:
   kubernetes.yaml: |
     mode: cluster
-  settings.yaml: |
     ingress: true
     traefik: true
+  settings.yaml: ""
   #settings.yaml: |
   #  providers:
   #    longhorn:

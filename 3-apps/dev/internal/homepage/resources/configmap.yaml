@@ -24,8 +24,6 @@ data:
             href: http://192.168.0.1/
         - Proxmox:
             href: http://192.168.0.50:8006/
-        - Pi-hole:
-            href: http://192.168.0.42/admin/
   widgets.yaml: |
     - kubernetes:
         cluster:

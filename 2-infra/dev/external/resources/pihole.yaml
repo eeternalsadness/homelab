@@ -4,8 +4,6 @@ metadata:
   name: external-pihole
 spec:
   clusterIP: None
-  externalIPs:
-    - 192.168.0.42
   ports:
     - name: http
       protocol: TCP
@@ -50,8 +48,8 @@ spec:
   routes:
     - kind: Rule
       match: Host(`pihole.eeternalsadness.dev`)
-      # middlewares:
-      #   - name: external-pihole-addprefix
+      middlewares:
+        - name: external-pihole-addprefix
       services:
         - name: external-pihole
           kind: Service

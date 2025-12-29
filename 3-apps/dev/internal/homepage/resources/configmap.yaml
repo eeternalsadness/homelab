@@ -20,8 +20,6 @@ data:
   bookmarks.yaml: ""
   services.yaml: |
     - Management:
-        - Router:
-            href: http://192.168.0.1/
         - Proxmox:
             href: http://192.168.0.50:8006/
   widgets.yaml: |

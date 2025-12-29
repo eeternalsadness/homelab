@@ -1,0 +1,21 @@
+# NOTE: to be applied manually
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: external-router
+  namespace: external
+  labels:
+    kubernetes.io/service-name: external-router
+addressType: IPv4
+ports:
+  - name: http # should match with the name of the service port defined above
+    appProtocol: http
+    protocol: TCP
+    port: 80
+endpoints:
+  - addresses:
+      - "192.168.0.1"
+    # https://github.com/traefik/traefik/issues/12389
+    # need to include this otherwise traefik fails with no server available
+    conditions:
+      ready: true

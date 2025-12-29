@@ -51,5 +51,3 @@ spec:
           kind: Service
           port: 80
           serversTransport: proxmox
-  tls:
-    secretName: proxmox-tls

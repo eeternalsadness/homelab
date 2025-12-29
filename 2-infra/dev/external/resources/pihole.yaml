@@ -47,8 +47,8 @@ spec:
   routes:
     - kind: Rule
       match: Host(`pihole.eeternalsadness.dev`)
-      middlewares:
-        - name: external-pihole-addprefix
+      # middlewares:
+      #   - name: external-pihole-addprefix
       services:
         - name: external-pihole
           port: 80

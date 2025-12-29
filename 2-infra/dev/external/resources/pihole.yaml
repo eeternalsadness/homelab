@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: external-pihole
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: external-pihole
+  labels:
+    kubernetes.io/service-name: external-pihole
+addressType: IPv4
+ports:
+  - name: http # should match with the name of the service port defined above
+    appProtocol: http
+    protocol: TCP
+    port: 80
+endpoints:
+  - addresses:
+      - "192.168.0.42"
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: pihole-cert
+spec:
+  secretName: pihole-tls
+  issuerRef:
+    name: cluster-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - pihole.eeternalsadness.dev
+---
+# Replace the path with /admin
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: external-pihole-addprefix
+spec:
+  addPrefix:
+    prefix: "/admin"
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: pihole
+  annotations:
+    gethomepage.dev/href: "https://pihole.eeternalsadness.dev"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: Pi-hole
+    gethomepage.dev/group: Management
+    #gethomepage.dev/icon: emby.png
+    gethomepage.dev/name: Pi-hole
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`pihole.eeternalsadness.dev`)
+      middlewares:
+        - name: external-pihole-addprefix
+      services:
+        - name: external-pihole
+          port: 80
+  tls:
+    secretName: pihole-tls

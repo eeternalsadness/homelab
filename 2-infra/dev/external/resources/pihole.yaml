@@ -4,6 +4,8 @@ metadata:
   name: external-pihole
 spec:
   clusterIP: None
+  externalIPs:
+    - 192.168.0.42
   ports:
     - name: http
       protocol: TCP

@@ -12,7 +12,7 @@ metadata:
     gethomepage.dev/group: Platform
     #gethomepage.dev/icon: emby.png
     gethomepage.dev/name: ArgoCD
-    gethomepage.dev/pod-selector: ""
+    #gethomepage.dev/pod-selector: ""
 spec:
   entryPoints:
     - web

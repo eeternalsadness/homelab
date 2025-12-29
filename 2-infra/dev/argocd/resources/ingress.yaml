@@ -13,7 +13,8 @@ metadata:
     gethomepage.dev/app: argocd-server # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
     #gethomepage.dev/icon: emby.png
     gethomepage.dev/name: ArgoCD
-    #gethomepage.dev/pod-selector: ""
+    # health check
+    gethomepage.dev/pod-selector: "app.kubernetes.io/name=argocd-server"
 spec:
   entryPoints:
     - web

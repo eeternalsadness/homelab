@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: external-proxmox
+spec:
+  clusterIP: None
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8006
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: proxmox-cert
+spec:
+  secretName: proxmox-tls
+  issuerRef:
+    name: cluster-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - proxmox.homelab.eeternalsadness.dev
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: proxmox
+  annotations:
+    gethomepage.dev/href: "https://proxmox.homelab.eeternalsadness.dev"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: Proxmox
+    gethomepage.dev/group: Management
+    #gethomepage.dev/icon: emby.png
+    gethomepage.dev/name: Proxmox
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`proxmox.homelab.eeternalsadness.dev`)
+      services:
+        - name: external-proxmox
+          kind: Service
+          port: 80
+  tls:
+    secretName: proxmox-tls

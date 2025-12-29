@@ -6,6 +6,10 @@ metadata:
   labels:
     app.kubernetes.io/name: homepage
 spec:
+  tls:
+    - hosts:
+        - "homelab.eeternalsadness.dev"
+      secretName: homepage-tls
   rules:
     - host: "homelab.eeternalsadness.dev"
       http:

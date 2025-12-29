@@ -9,22 +9,6 @@ spec:
       port: 80
       targetPort: 80
 ---
-apiVersion: discovery.k8s.io/v1
-kind: EndpointSlice
-metadata:
-  name: external-pihole
-  labels:
-    kubernetes.io/service-name: external-pihole
-addressType: IPv4
-ports:
-  - name: http # should match with the name of the service port defined above
-    appProtocol: http
-    protocol: TCP
-    port: 80
-endpoints:
-  - addresses:
-      - "192.168.0.42"
----
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:

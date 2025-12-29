@@ -11,7 +11,7 @@ spec:
     namespace: argocd
     server: "https://kubernetes.default.svc"
   source:
-    path: "1-argocd-apps/3-infra/internal/dev"
+    path: "1-argocd-apps/3-apps/internal/dev"
     repoURL: "https://github.com/eeternalsadness/homelab.git"
     targetRevision: main
   syncPolicy:

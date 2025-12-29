@@ -13,7 +13,8 @@ ingressRoute:
     matchRule: Host(`traefik.homelab.eeternalsadness.dev`)
     entryPoints:
       - websecure
-    tls: traefik-tls
+    tls:
+      secretName: traefik-tls
 providers:
   kubernetesGateway:
     enabled: true

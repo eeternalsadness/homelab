@@ -11,6 +11,10 @@ spec:
     namespace: traefik
     server: "https://kubernetes.default.svc"
   sources:
+    # resources
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: main
+      path: 2-infra/dev/traefik/resources
     # install helm chart
     - chart: traefik
       repoURL: "https://traefik.github.io/charts"

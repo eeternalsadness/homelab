@@ -1,9 +1,19 @@
 ingressRoute:
   dashboard:
     enabled: true
+    annotations:
+      gethomepage.dev/href: "https://traefik.homelab.eeternalsadness.dev"
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/description: Traefik
+      gethomepage.dev/group: Platform
+      #gethomepage.dev/icon: emby.png
+      gethomepage.dev/name: Traefik
+      # health check
+      gethomepage.dev/pod-selector: "app.kubernetes.io/name=traefik"
     matchRule: Host(`traefik.homelab.eeternalsadness.dev`)
     entryPoints:
-      - web
+      - websecure
+    tls: traefik-tls
 providers:
   kubernetesGateway:
     enabled: true

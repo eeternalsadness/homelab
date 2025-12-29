@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: external-pihole
 spec:
+  clusterIP: None
   ports:
     - name: http
       protocol: TCP

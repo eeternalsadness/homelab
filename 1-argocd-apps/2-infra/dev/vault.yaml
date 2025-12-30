@@ -1,4 +1,3 @@
-{{- range .Values.envs }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -12,18 +11,18 @@ spec:
   sources:
     - chart: vault
       repoURL: "https://helm.releases.hashicorp.com"
-      targetRevision: 0.29.1
+      targetRevision: 0.31.0
       helm:
         valueFiles:
-          - $values/envs/{{ . }}/vault/values/values.yaml
+          - $values/2-infra/dev/vault/values/values.yaml
     # values files reference
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
       ref: values
-    # kustomization
+    # resources
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
-      path: envs/{{ . }}/vault/resources
+      path: 2-infra/dev/vault/resources
   # ignore mutating webhook diffs
   ignoreDifferences:
     - group: admissionregistration.k8s.io
@@ -36,4 +35,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-{{- end }}
+      - ServerSideApply=true

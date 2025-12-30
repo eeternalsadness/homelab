@@ -5,6 +5,16 @@ kind: IngressRoute
 metadata:
   name: vault
   namespace: vault
+  annotations:
+    gethomepage.dev/href: "https://vault.homelab.eeternalsadness.dev"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: HashiCorp Vault
+    gethomepage.dev/group: Platform
+    gethomepage.dev/app: vault # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
+    gethomepage.dev/icon: hashicorp-vault.png # icons from https://github.com/homarr-labs/dashboard-icons/tree/main/png
+    gethomepage.dev/name: Vault
+    # health check
+    gethomepage.dev/pod-selector: "app.kubernetes.io/name=vault"
 spec:
   entryPoints:
     - websecure

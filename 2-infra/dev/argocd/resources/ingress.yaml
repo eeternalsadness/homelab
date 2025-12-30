@@ -11,7 +11,7 @@ metadata:
     gethomepage.dev/description: ArgoCD
     gethomepage.dev/group: Platform
     gethomepage.dev/app: argocd-server # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
-    gethomepage.dev/icon: argo-cd.png
+    gethomepage.dev/icon: argo-cd.png # icons from https://github.com/homarr-labs/dashboard-icons/tree/main/png
     gethomepage.dev/name: ArgoCD
     # health check
     gethomepage.dev/pod-selector: "app.kubernetes.io/name=argocd-server"

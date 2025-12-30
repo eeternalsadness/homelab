@@ -38,7 +38,7 @@ metadata:
     gethomepage.dev/enabled: "true"
     gethomepage.dev/description: Proxmox
     gethomepage.dev/group: Management
-    #gethomepage.dev/icon: emby.png
+    gethomepage.dev/icon: proxmox.png
     gethomepage.dev/name: Proxmox
 spec:
   entryPoints:
@@ -51,3 +51,5 @@ spec:
           kind: Service
           port: 80
           serversTransport: proxmox
+  tls:
+    secretName: proxmox-tls

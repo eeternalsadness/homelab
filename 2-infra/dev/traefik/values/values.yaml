@@ -6,7 +6,7 @@ ingressRoute:
       gethomepage.dev/enabled: "true"
       gethomepage.dev/description: Traefik
       gethomepage.dev/group: Platform
-      #gethomepage.dev/icon: emby.png
+      gethomepage.dev/icon: traefik.png
       gethomepage.dev/name: Traefik
       # health check
       gethomepage.dev/pod-selector: "app.kubernetes.io/name=traefik"

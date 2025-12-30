@@ -32,7 +32,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: proxmox
+  name: external-proxmox
   annotations:
     gethomepage.dev/href: "https://proxmox.homelab.eeternalsadness.dev"
     gethomepage.dev/enabled: "true"

@@ -5,9 +5,9 @@ metadata:
 spec:
   clusterIP: None
   ports:
-    - name: http
+    - name: https
       protocol: TCP
-      port: 80
+      port: 8006
       targetPort: 8006
 ---
 apiVersion: cert-manager.io/v1
@@ -49,7 +49,7 @@ spec:
       services:
         - name: external-proxmox
           kind: Service
-          port: 80
+          port: 8006
           serversTransport: proxmox
   tls:
     secretName: proxmox-tls

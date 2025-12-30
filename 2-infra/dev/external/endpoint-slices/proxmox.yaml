@@ -9,7 +9,7 @@ metadata:
 addressType: IPv4
 ports:
   - name: http # should match with the name of the service port defined above
-    appProtocol: http
+    appProtocol: https
     protocol: TCP
     port: 8006
 endpoints:

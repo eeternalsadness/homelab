@@ -1,6 +1,35 @@
 # https://github.com/hashicorp/vault-helm/blob/main/values.yaml
 server:
   logLevel: warn
+  # disable integrated storage backend, use PostgreSQL instead
+  dataStorage:
+    enabled: false
+
+  # run in standalone mode
+  standalone:
+    enabled: true
+    config: |
+      ui = true
+
+      listener "tcp" {
+        tls_disable = 1
+        address = "[::]:8200"
+        cluster_address = "[::]:8201"
+        # Enable unauthenticated metrics access (necessary for Prometheus Operator)
+        #telemetry {
+        #  unauthenticated_metrics_access = "true"
+        #}
+      }
+
+      # use postgresql storage backend
+      storage "postgresql" {
+      }
+
+  # secret for postgresql connection string
+  extraSecretEnvironmentVars:
+    - envName: VAULT_PG_CONNECTION_URL
+      secretName: vault-pg-connection
+      secretKey: url
 
 ui:
   enabled: true

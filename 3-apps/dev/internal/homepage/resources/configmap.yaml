@@ -10,7 +10,9 @@ data:
     mode: cluster
     ingress: true
     traefik: true
-  settings.yaml: ""
+  settings.yaml: |
+    theme: dark
+    statusStyle: dot
   #settings.yaml: |
   #  providers:
   #    longhorn:
@@ -23,6 +25,9 @@ data:
         - Router:
             href: http://192.168.0.1/
             icon: router.png
+        - CloudFlare:
+            href: https://dash.cloudflare.com
+            icon: cloudflare.png
   widgets.yaml: |
     - kubernetes:
         cluster:

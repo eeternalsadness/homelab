@@ -41,7 +41,7 @@ metadata:
     gethomepage.dev/enabled: "true"
     gethomepage.dev/description: Pi-hole
     gethomepage.dev/group: Management
-    gethomepage.dev/icon: pi-hole.png
+    gethomepage.dev/icon: pi-hole.png # icons from https://github.com/homarr-labs/dashboard-icons/tree/main/png
     gethomepage.dev/name: Pi-hole
 spec:
   entryPoints:

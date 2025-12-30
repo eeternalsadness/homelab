@@ -40,6 +40,7 @@ metadata:
     gethomepage.dev/group: Management
     gethomepage.dev/icon: proxmox.png # icons from https://github.com/homarr-labs/dashboard-icons/tree/main/png
     gethomepage.dev/name: Proxmox
+    gethomepage.dev/siteMonitor: "https://proxmox.homelab.eeternalsadness.dev"
 spec:
   entryPoints:
     - websecure

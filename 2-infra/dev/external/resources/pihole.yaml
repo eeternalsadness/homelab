@@ -43,6 +43,7 @@ metadata:
     gethomepage.dev/group: Management
     gethomepage.dev/icon: pi-hole.png # icons from https://github.com/homarr-labs/dashboard-icons/tree/main/png
     gethomepage.dev/name: Pi-hole
+    gethomepage.dev/siteMonitor: "https://pihole.homelab.eeternalsadness.dev"
 spec:
   entryPoints:
     - websecure

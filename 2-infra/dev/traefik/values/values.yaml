@@ -26,7 +26,7 @@ gateway:
 logs:
   general:
     format: json
-    level: "DEBUG"
+    level: "WARN"
   access:
-    enabled: true
+    enabled: false
     format: json

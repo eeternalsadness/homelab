@@ -17,11 +17,11 @@ grafana:
       gethomepage.dev/enabled: "true"
       gethomepage.dev/description: Grafana
       gethomepage.dev/group: Platform
-      gethomepage.dev/app: kube-prometheus-grafana # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
+      gethomepage.dev/app: grafana # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
       gethomepage.dev/icon: grafana.png # icons from https://github.com/homarr-labs/dashboard-icons/tree/main/png
       gethomepage.dev/name: Grafana
       # health check
-      gethomepage.dev/pod-selector: "app.kubernetes.io/name=kube-prometheus-grafana"
+      gethomepage.dev/pod-selector: "app.kubernetes.io/name=grafana"
     hosts:
       - grafana.homelab.eeternalsadness.dev
     tls:

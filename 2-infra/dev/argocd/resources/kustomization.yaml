@@ -12,4 +12,5 @@ configMapGenerator:
   - name: argocd-cmd-params-cm
     literals:
       - server.insecure=true
+      - controller.diff.server.side=true
     behavior: replace

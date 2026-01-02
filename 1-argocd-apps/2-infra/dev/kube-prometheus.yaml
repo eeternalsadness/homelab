@@ -1,4 +1,3 @@
-{{- range .Values.envs }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -15,23 +14,21 @@ spec:
       targetRevision: 70.3.0
       helm:
         valueFiles:
-          - $values/envs/{{ . }}/kube-prometheus/values/values-grafana.yaml
-          - $values/envs/{{ . }}/kube-prometheus/values/values-prometheus.yaml
-          - $values/envs/{{ . }}/kube-prometheus/values/values.yaml
+          - $values/2-infra/dev/kube-prometheus/values/values-grafana.yaml
+          - $values/2-infra/dev/kube-prometheus/values/values-prometheus.yaml
+          - $values/2-infra/dev/kube-prometheus/values/values.yaml
     # values files reference
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
       ref: values
-    # kustomization
+    # resources
     - repoURL: "https://github.com/eeternalsadness/homelab.git"
       targetRevision: main
-      path: envs/{{ . }}/kube-prometheus/resources
+      path: 2-infra/dev/kube-prometheus/resources
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      # try to get around annotation size limit
       - ServerSideApply=true
-{{- end }}

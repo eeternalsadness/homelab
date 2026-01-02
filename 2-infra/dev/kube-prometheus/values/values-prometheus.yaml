@@ -2,15 +2,15 @@ prometheus:
   enabled: true
 
   prometheusSpec:
-    retention: 10d
+    retention: 14d
     resources: {}
 
     # data persistence
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          storageClassName: default
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 10Gi
+    # storageSpec:
+    #   volumeClaimTemplate:
+    #     spec:
+    #       storageClassName: default
+    #       accessModes: ["ReadWriteOnce"]
+    #       resources:
+    #         requests:
+    #           storage: 10Gi

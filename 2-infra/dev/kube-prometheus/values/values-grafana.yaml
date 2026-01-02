@@ -1,5 +1,33 @@
 grafana:
-  defaultDashboardsTimezone: Asia/Bangkok
+  enabled: true
+
+  defaultDashboardsEnabled: true
+  defaultDashboardsTimezone: Asia/Singapore
+
+  # configure admin credentials from existing secret
+  admin:
+    existingSecret: ""
+    userKey: username
+    passwordKey: password
+
+  ingress:
+    enabled: true
+    annotations:
+      gethomepage.dev/href: "https://grafana.homelab.eeternalsadness.dev"
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/description: Grafana
+      gethomepage.dev/group: Platform
+      gethomepage.dev/app: kube-prometheus-grafana # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
+      gethomepage.dev/icon: grafana.png # icons from https://github.com/homarr-labs/dashboard-icons/tree/main/png
+      gethomepage.dev/name: Grafana
+      # health check
+      gethomepage.dev/pod-selector: "app.kubernetes.io/name=kube-prometheus-grafana"
+    hosts:
+      - grafana.homelab.eeternalsadness.dev
+    tls:
+      - secretName: grafana-tls
+        hosts:
+          - grafana.homelab.eeternalsadness.dev
 
   grafana.ini:
     server:
@@ -9,32 +37,4 @@ grafana:
   resources: {}
 
   persistence:
-    enabled: true
-    type: pvc
-    accessModes:
-      - ReadWriteOnce
-    size: 4Gi
-
-  # NOTE: for auto discovery of resources (dashboards, alerts, data sources, etc.)
-  #sidecar:
-  #  resources: {}
-  #  dashboards:
-  #    enabled: true
-  #    label: grafana_dashboard # label to look for
-  #    labelValue: "1" # label value to look for
-  #    searchNamespace: ALL # search in all namespaces
-  #  alerts:
-  #    enabled: true
-  #    label: grafana_alert
-  #    labelValue: "1"
-  #    searchNamespace: ALL # search in all namespaces
-  #  datasources:
-  #    enabled: true
-  #    label: grafana_datasource
-  #    labelValue: "1"
-  #    searchNamespace: ALL # search in all namespaces
-  #  plugins:
-  #    enabled: true
-  #    label: grafana_plugin
-  #    labelValue: "1"
-  #    searchNamespace: ALL # search in all namespaces
+    enabled: false

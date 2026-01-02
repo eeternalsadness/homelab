@@ -6,7 +6,7 @@ grafana:
 
   # configure admin credentials from existing secret
   admin:
-    existingSecret: ""
+    existingSecret: "grafana-admin"
     userKey: username
     passwordKey: password
 

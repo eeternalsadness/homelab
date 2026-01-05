@@ -1,10 +1,10 @@
 defaultRules:
   create: true
   rules:
-    alertmanager: true
-    etcd: true
-    configReloaders: true
-    general: true
+    alertmanager: false
+    etcd: false
+    configReloaders: false
+    general: false
     k8sContainerCpuUsageSecondsTotal: true
     k8sContainerMemoryCache: true
     k8sContainerMemoryRss: true
@@ -13,25 +13,25 @@ defaultRules:
     k8sContainerMemoryWorkingSetBytes: true
     k8sPodOwner: true
     kubeApiserverAvailability: true
-    kubeApiserverBurnrate: true
+    kubeApiserverBurnrate: false
     kubeApiserverHistogram: true
-    kubeApiserverSlos: true
-    kubeControllerManager: true
-    kubelet: true
-    kubeProxy: true
+    kubeApiserverSlos: false
+    kubeControllerManager: false
+    kubelet: false
+    kubeProxy: false
     kubePrometheusGeneral: true
     kubePrometheusNodeRecording: true
-    kubernetesApps: true
-    kubernetesResources: true
-    kubernetesStorage: true
-    kubernetesSystem: true
-    kubeSchedulerAlerting: true
+    kubernetesApps: false
+    kubernetesResources: false
+    kubernetesStorage: false
+    kubernetesSystem: false
+    kubeSchedulerAlerting: false
     kubeSchedulerRecording: true
-    kubeStateMetrics: true
-    network: true
+    kubeStateMetrics: false
+    network: false
     node: true
-    nodeExporterAlerting: true
+    nodeExporterAlerting: false
     nodeExporterRecording: true
-    prometheus: true
-    prometheusOperator: true
+    prometheus: false
+    prometheusOperator: false
     windows: false

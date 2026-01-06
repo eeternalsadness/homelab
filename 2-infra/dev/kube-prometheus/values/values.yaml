@@ -33,7 +33,7 @@ defaultRules:
     node: true
     nodeExporterAlerting: true
     nodeExporterRecording: true
-    prometheus: false
+    prometheus: true
     prometheusOperator: false
     windows: false
   disabled: {}

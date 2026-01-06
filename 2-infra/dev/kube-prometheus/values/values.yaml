@@ -3,9 +3,9 @@ defaultRules:
   # 85 recording rules
   rules:
     alertmanager: false
-    etcd: true
-    configReloaders: true
-    general: true
+    etcd: false
+    configReloaders: false
+    general: false
     k8sContainerCpuUsageSecondsTotal: true
     k8sContainerMemoryCache: true
     k8sContainerMemoryRss: true

@@ -1,39 +1,38 @@
 defaultRules:
   create: true
   # 85 recording rules
-  rules:
-    alertmanager: false
-    etcd: false
-    configReloaders: false
-    general: false
-    k8sContainerCpuUsageSecondsTotal: true
-    k8sContainerMemoryCache: true
-    k8sContainerMemoryRss: true
-    k8sContainerMemorySwap: true
-    k8sContainerResource: true
-    k8sContainerMemoryWorkingSetBytes: true
-    k8sPodOwner: true
-    kubeApiserverAvailability: true
-    kubeApiserverBurnrate: true
-    kubeApiserverHistogram: true
-    kubeApiserverSlos: false
-    kubeControllerManager: false
-    kubelet: false
-    kubeProxy: false
-    kubePrometheusGeneral: true
-    kubePrometheusNodeRecording: true
-    kubernetesApps: false
-    kubernetesResources: false
-    kubernetesStorage: false
-    kubernetesSystem: false
-    kubeSchedulerAlerting: false
-    kubeSchedulerRecording: true
-    kubeStateMetrics: false
-    network: false
-    node: true
-    nodeExporterAlerting: true
-    nodeExporterRecording: true
-    prometheus: true
-    prometheusOperator: false
-    windows: false
-  disabled: {}
+  #rules:
+  #  alertmanager: false
+  #  etcd: false
+  #  configReloaders: false
+  #  general: false
+  #  k8sContainerCpuUsageSecondsTotal: true
+  #  k8sContainerMemoryCache: true
+  #  k8sContainerMemoryRss: true
+  #  k8sContainerMemorySwap: true
+  #  k8sContainerResource: true
+  #  k8sContainerMemoryWorkingSetBytes: true
+  #  k8sPodOwner: true
+  #  kubeApiserverAvailability: true
+  #  kubeApiserverBurnrate: true
+  #  kubeApiserverHistogram: true
+  #  kubeApiserverSlos: false
+  #  kubeControllerManager: false
+  #  kubelet: false
+  #  kubeProxy: false
+  #  kubePrometheusGeneral: true
+  #  kubePrometheusNodeRecording: true
+  #  kubernetesApps: false
+  #  kubernetesResources: false
+  #  kubernetesStorage: false
+  #  kubernetesSystem: false
+  #  kubeSchedulerAlerting: false
+  #  kubeSchedulerRecording: true
+  #  kubeStateMetrics: false
+  #  network: false
+  #  node: true
+  #  nodeExporterAlerting: true
+  #  nodeExporterRecording: true
+  #  prometheus: false
+  #  prometheusOperator: false
+  #  windows: false

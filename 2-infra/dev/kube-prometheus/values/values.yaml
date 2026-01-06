@@ -1,7 +1,8 @@
 defaultRules:
   create: true
+  # 85 recording rules
   rules:
-    alertmanager: true
+    alertmanager: false
     etcd: true
     configReloaders: true
     general: true
@@ -35,3 +36,4 @@ defaultRules:
     prometheus: true
     prometheusOperator: true
     windows: false
+  disabled: {}

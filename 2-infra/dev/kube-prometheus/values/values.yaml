@@ -29,11 +29,11 @@ defaultRules:
     kubeSchedulerAlerting: false
     kubeSchedulerRecording: true
     kubeStateMetrics: false
-    network: true
+    network: false
     node: true
     nodeExporterAlerting: true
     nodeExporterRecording: true
-    prometheus: true
-    prometheusOperator: true
+    prometheus: false
+    prometheusOperator: false
     windows: false
   disabled: {}

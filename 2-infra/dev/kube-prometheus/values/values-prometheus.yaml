@@ -5,6 +5,25 @@ prometheus:
     retention: 14d
     resources: {}
 
+  ingress:
+    enabled: true
+    annotations:
+      gethomepage.dev/href: "https://prometheus.homelab.eeternalsadness.dev"
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/description: Prometheus
+      gethomepage.dev/group: Platform
+      gethomepage.dev/app: prometheus # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
+      gethomepage.dev/icon: prometheus.png # icons from https://github.com/homarr-labs/dashboard-icons/tree/main/png
+      gethomepage.dev/name: Prometheus
+      # health check
+      gethomepage.dev/pod-selector: "app.kubernetes.io/name=prometheus"
+    hosts:
+      - prometheus.homelab.eeternalsadness.dev
+    tls:
+      - secretName: prometheus-tls
+        hosts:
+          - prometheus.homelab.eeternalsadness.dev
+
     # data persistence
     # storageSpec:
     #   volumeClaimTemplate:

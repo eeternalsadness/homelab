@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prometheus-cert
+  namespace: monitoring
+spec:
+  secretName: prometheus-tls
+  issuerRef:
+    name: cluster-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - prometheus.homelab.eeternalsadness.dev

@@ -41,16 +41,13 @@ defaultRules:
 kubeEtcd:
   enabled: true
 
-  # talos doesn't run etcd as pods
-  endpoints:
-    - 192.168.0.70
-    - 192.168.0.71
-    - 192.168.0.72
-
   service:
     enabled: true
     port: 2381
     targetPort: 2381
+    # hack to get the control plane endpoints from the kube-controller-manager endpoints since they use host network
+    selector:
+      component: kube-controller-manager
 
   ## Configure secure access to the etcd cluster by loading a secret into prometheus and
   ## specifying security configuration below. For example, with a secret named etcd-client-cert

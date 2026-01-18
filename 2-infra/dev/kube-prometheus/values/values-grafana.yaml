@@ -13,23 +13,7 @@ grafana:
     passwordKey: password
 
   ingress:
-    enabled: true
-    annotations:
-      gethomepage.dev/href: "https://grafana.homelab.eeternalsadness.dev"
-      gethomepage.dev/enabled: "true"
-      gethomepage.dev/description: Grafana
-      gethomepage.dev/group: Platform
-      gethomepage.dev/app: grafana # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
-      gethomepage.dev/icon: grafana.png # icons from https://github.com/homarr-labs/dashboard-icons/tree/main/png
-      gethomepage.dev/name: Grafana
-      # health check
-      gethomepage.dev/pod-selector: "app.kubernetes.io/name=grafana"
-    hosts:
-      - grafana.homelab.eeternalsadness.dev
-    tls:
-      - secretName: grafana-tls
-        hosts:
-          - grafana.homelab.eeternalsadness.dev
+    enabled: false
 
   grafana.ini:
     server:

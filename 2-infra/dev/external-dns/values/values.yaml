@@ -13,3 +13,15 @@ domainFilters:
 
 # exclude specific domains from being managed
 excludeDomains: []
+
+# workaround for traefik ingressroutes
+sources:
+  - traefik-proxy
+
+rbac:
+  create: true
+  # additional rules to add to the ClusterRole
+  additionalPermissions:
+    - apiGroups: ["traefik.containo.us", "traefik.io"]
+      resources: ["ingressroutes", "ingressroutetcps", "ingressrouteudps"]
+      verbs: ["get", "watch", "list"]

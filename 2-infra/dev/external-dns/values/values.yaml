@@ -16,6 +16,8 @@ excludeDomains: []
 
 # workaround for traefik ingressroutes
 sources:
+  - service
+  - ingress
   - traefik-proxy
 
 rbac:

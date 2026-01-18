@@ -15,6 +15,9 @@ metadata:
     gethomepage.dev/name: Vault
     # health check
     gethomepage.dev/pod-selector: "app.kubernetes.io/name=vault"
+    # external dns
+    external-dns.alpha.kubernetes.io/hostname: vault.homelab.eeternalsadness.dev
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "false" # whether to proxy through Cloudflare or not
 spec:
   entryPoints:
     - websecure

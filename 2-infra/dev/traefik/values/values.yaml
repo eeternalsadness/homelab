@@ -1,3 +1,14 @@
+# https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml
+service:
+  enabled: true
+  ## -- Single service is using `MixedProtocolLBService` feature gate.
+  ## -- When set to false, it will create two Service, one for TCP and one for UDP.
+  single: true
+  type: LoadBalancer
+  annotations:
+    # pin IP address for metallb
+    metallb.io/loadBalancerIPs: 192.168.0.10
+
 ingressRoute:
   dashboard:
     enabled: true
@@ -18,14 +29,17 @@ ingressRoute:
       - websecure
     tls:
       secretName: traefik-tls
+
 providers:
   kubernetesGateway:
     enabled: true
+
 gateway:
   listeners:
     web:
       namespacePolicy:
         from: All
+
 logs:
   general:
     format: json

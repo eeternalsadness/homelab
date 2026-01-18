@@ -15,6 +15,8 @@ metadata:
     gethomepage.dev/name: ArgoCD
     # health check
     gethomepage.dev/pod-selector: "app.kubernetes.io/name=argocd-server"
+    # external dns
+    external-dns.alpha.kubernetes.io/target: "traefik-lb.homelab.eeternalsadness.dev"
 spec:
   entryPoints:
     - websecure

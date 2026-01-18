@@ -17,6 +17,8 @@ prometheus:
       gethomepage.dev/name: Prometheus
       # health check
       gethomepage.dev/pod-selector: "app.kubernetes.io/name=prometheus"
+      # external dns
+      external-dns.alpha.kubernetes.io/target: "traefik-lb.homelab.eeternalsadness.dev"
     hosts:
       - prometheus.homelab.eeternalsadness.dev
     tls:

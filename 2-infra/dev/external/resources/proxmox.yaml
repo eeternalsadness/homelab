@@ -5,7 +5,6 @@ metadata:
 spec:
   type: ExternalName
   externalName: proxmox-1.home.lan
-  internalTrafficPolicy: Cluster
   ports:
     - name: https
       protocol: TCP

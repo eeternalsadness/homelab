@@ -10,7 +10,6 @@ metadata:
 spec:
   type: ExternalName
   externalName: postgres-1.home.lan
-  internalTrafficPolicy: Cluster
   ports:
     - name: http-metrics
       protocol: TCP

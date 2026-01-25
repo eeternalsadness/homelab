@@ -5,6 +5,16 @@ prometheus:
     retention: 14d
     resources: {}
 
+    additionalScrapeConfigs:
+      - job_name: node-exporter
+        scheme: http
+        static_configs:
+          - targets: ["rpi-1.home.lan:9100"]
+    additionalScrapeConfigsSecret: {}
+      # enabled: false
+      # name:
+      # key:
+
   ingress:
     enabled: false
 

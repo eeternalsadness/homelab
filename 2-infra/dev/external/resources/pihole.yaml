@@ -5,6 +5,7 @@ metadata:
 spec:
   type: ExternalName
   externalName: rpi-1.home.lan
+  internalTrafficPolicy: Cluster
   ports:
     - name: http
       protocol: TCP

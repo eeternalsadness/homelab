@@ -3,7 +3,9 @@ kind: Service
 metadata:
   name: external-proxmox
 spec:
-  clusterIP: None
+  type: ExternalName
+  externalName: proxmox-1.home.lan
+  internalTrafficPolicy: Cluster
   ports:
     - name: https
       protocol: TCP

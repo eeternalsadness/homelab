@@ -1,0 +1,33 @@
+# NOTE: might need to switch to headless service + endpointSlices if there are multiple endpoints
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: postgres-1
+    app.kubernetes.io/name: node-exporter-postgres
+  name: node-exporter-postgres
+  namespace: monitoring
+spec:
+  type: ExternalName
+  externalName: postgres-1.home.lan
+  internalTrafficPolicy: Cluster
+  ports:
+    - name: http-metrics
+      protocol: TCP
+      port: 9100
+      targetPort: 9100
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: node-exporter-postgres
+  namespace: monitoring
+spec:
+  endpoints:
+    - port: http-metrics
+      scheme: http
+  jobLabel: jobLabel
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: postgres-1
+      app.kubernetes.io/name: node-exporter-postgres

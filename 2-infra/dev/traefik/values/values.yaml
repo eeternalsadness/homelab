@@ -33,7 +33,7 @@ ingressRoute:
       secretName: traefik-tls
 
 providers:
-  kubernetesCRDs:
+  kubernetesCRD:
     enabled: true
     allowExternalNameServices: true
   kubernetesGateway:

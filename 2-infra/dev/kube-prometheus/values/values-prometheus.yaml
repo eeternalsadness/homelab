@@ -9,7 +9,9 @@ prometheus:
       - job_name: node-exporter
         scheme: http
         static_configs:
-          - targets: ["rpi-1.home.lan:9100"]
+          - targets:
+              - rpi-1.home.lan:9100
+              - postgres-1.home.lan:9100
     additionalScrapeConfigsSecret: {}
       # enabled: false
       # name:

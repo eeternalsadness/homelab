@@ -1,0 +1,9 @@
+# remove /kubernetes path prefix
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: kubernetes-mcp-server-replacepathregex
+spec:
+  replacePathRegex:
+    regex: "^/kubernetes(.*)"
+    replacement: "$1"

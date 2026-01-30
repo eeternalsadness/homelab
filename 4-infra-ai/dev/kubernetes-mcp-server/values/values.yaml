@@ -1,0 +1,13 @@
+rbac:
+  create: true
+  extraClusterRoleBindings:
+    - name: kubernetes-mcp-server-view
+      roleRef:
+        name: view
+        external: true # required when binding to existing cluster role
+
+service:
+  port: 8080
+
+ingress:
+  enabled: false

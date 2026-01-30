@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubernetes-mcp-server
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    namespace: mcp-servers
+    server: "https://kubernetes.default.svc"
+  sources:
+    - path: . # for oci charts, always use path: .
+      repoURL: "oci://ghcr.io/containers/charts/kubernetes-mcp-server"
+      targetRevision: 0.1.0
+      helm:
+        valueFiles:
+          - $values/4-infra-ai/dev/kubernetes-mcp-server/values/values.yaml
+    # values files reference
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: main
+      ref: values
+    # resources
+    # - repoURL: "https://github.com/eeternalsadness/homelab.git"
+    #   targetRevision: main
+    #   path: 2-infra/dev/kubernetes-mcp-server/resources
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true

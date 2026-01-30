@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mcp-servers
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    namespace: mcp-servers
+    server: "https://kubernetes.default.svc"
+  source:
+    path: "4-infra-ai/dev/mcp-servers/resources"
+    repoURL: "https://github.com/eeternalsadness/homelab.git"
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+    # managedNamespaceMetadata:
+    #   labels:
+    #     # required if PSA is enabled
+    #     pod-security.kubernetes.io/enforce: privileged
+    #     pod-security.kubernetes.io/audit: privileged
+    #     pod-security.kubernetes.io/warn: privileged

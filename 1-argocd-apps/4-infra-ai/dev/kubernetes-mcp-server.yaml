@@ -20,9 +20,9 @@ spec:
       targetRevision: main
       ref: values
     # resources
-    # - repoURL: "https://github.com/eeternalsadness/homelab.git"
-    #   targetRevision: main
-    #   path: 2-infra/dev/kubernetes-mcp-server/resources
+    - repoURL: "https://github.com/eeternalsadness/homelab.git"
+      targetRevision: main
+      path: 4-infra-ai/dev/kubernetes-mcp-server/resources
   syncPolicy:
     automated:
       prune: true

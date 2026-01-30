@@ -1,3 +1,5 @@
+# https://github.com/kubernetes-sigs/external-dns/blob/master/charts/external-dns/values.yaml
+
 provider:
   name: cloudflare
 env:
@@ -19,6 +21,9 @@ sources:
   - service
   - ingress
   - traefik-proxy
+
+# delete dns records when ingresses are deleted
+policy: sync
 
 rbac:
   create: true

@@ -5,7 +5,7 @@ rbac:
   extraClusterRoleBindings:
     - name: kubernetes-mcp-server-view
       roleRef:
-        name: view
+        name: kubernetes-mcp-server-view
         external: true # required when binding to existing cluster role
 
 service:

@@ -1,3 +1,5 @@
+# https://github.com/containers/kubernetes-mcp-server/blob/main/charts/kubernetes-mcp-server/values.yaml
+
 rbac:
   create: true
   extraClusterRoleBindings:

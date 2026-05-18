@@ -2,46 +2,51 @@
 
 ## Introduction
 
-This is my personal homelab where I experiment with container orchestration and infrastructure management. I try to run different kinds of technology here to have a better understanding of them. I'll try to follow DevSecOps best practices where I can.
+This is my personal homelab where I experiment with container orchestration and infrastructure management.
 
 ## Setup
 
-Currently I'm running a 2-node cluster on my spare hardware. I'm using `k3s` on Ubuntu Server.
+Kubernetes cluster on Talos Linux. The Talos nodes are provisioned as VMs through Proxmox on my spare hardware.
 
-**Control plane**:
+**Proxmox hosts**:
 
-Surface Go (1st gen): Pentium 4415Y (2 cores, 4 threads), 4GB RAM
+- ASRock Deskmini A300: AMD Ryzen 3 2200G (4 cores, 4 threads), 8GB RAM
+- AMD Ryzen mini PC: 8 cores, 16 threads, 32GB RAM
 
-**Worker nodes**:
+## Related Repos
 
-ASRock Deskmini A300: AMD Ryzen 3 2200G (4 cores, 4 threads), 8GB RAM
+- [homelab-ansible](https://github.com/eeternalsadness/homelab-ansible) — Pi-hole DNS server and other node-level config
+- [cloudflare](https://github.com/eeternalsadness/cloudflare) — Cloudflare Tunnel and DNS managed through Terraform
+- [grafana](https://github.com/eeternalsadness/grafana) — Grafana config managed through Terraform
+- [vault](https://github.com/eeternalsadness/vault) — Vault config managed through Terraform
 
 ## Workload
 
-### Infrastructure
+### Cluster Infrastructure
 
-- ArgoCD
-- Cert Manager
-- Prometheus
-- Grafana
+- ArgoCD (app of apps pattern)
+- Traefik (ingress controller)
+- cert-manager
+- MetalLB
+- external-dns
+- external-secrets
+- kube-prometheus-stack (Prometheus + Grafana)
 - HashiCorp Vault
-- Qdrant
 
-I'm currently using Terraform to manage these infrastructure components:
+### AI Infrastructure
 
-- Grafana: [https://github.com/eeternalsadness/grafana](https://github.com/eeternalsadness/grafana)
-- Vault: [https://github.com/eeternalsadness/vault](https://github.com/eeternalsadness/vault)
+- MCP servers (Kubernetes MCP server)
+
+### Applications
+
+- Homepage (internal dashboard)
 
 ## Decisions
 
-### VPN
+### Remote Access
 
-I used to run an OpenVPN service on the Deskmini node with Fail2ban as a tiny safeguard to allow remote access to my cluster, but my home network was very bad, so managing the cluster remotely was really frustrating. I ended up removing the OpenVPN service and decided to work on a local minikube cluster when I'm away from home instead.
+I used to run an OpenVPN service with Fail2ban for remote cluster access, but it was unreliable on my home network. I've since moved to Cloudflare Tunnel, with the configuration managed in the cloudflare repo.
 
-I'll probably revisit this in the future with Cloudflare tunnel.
+### GitOps
 
-### ArgoCD
-
-I'm starting out with ArgoCD as my GitOps tool of choice based on my past experience. I'm currently implementing the app of apps pattern for cluster management.
-
-I'll try out FluxCD in the future and make a decision on which tool I like better.
+ArgoCD with the app of apps pattern for cluster management.
